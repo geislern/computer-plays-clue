@@ -1,11 +1,11 @@
 import random
 
 from game import Game
-from strategies import RandomPlayer, CheatingRandomPlayer
+from strategies import RandomPlayer, CheatingRandomPlayer, ManualRulePlayer
 
-COMPETITION_STRATEGIES = [RandomPlayer, CheatingRandomPlayer]
+COMPETITION_STRATEGIES = [RandomPlayer, CheatingRandomPlayer, ManualRulePlayer]
 PLAYERS_PER_STRATEGY = 2
-GAMES = 500
+GAMES = 5000
 
 if __name__ == "__main__":
     game = Game("config/classic_game_de.json")

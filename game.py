@@ -3,6 +3,8 @@ import random
 from inout.parser import parse_game_config
 from strategies import Player
 from strategies import RandomPlayer
+from strategies import CheatingRandomPlayer
+from strategies import ManualRulePlayer
 
 
 class Game:
@@ -175,7 +177,8 @@ if __name__ == "__main__":
     game = Game("config/classic_game_de.json")
 
     # Generate 4 random players
-    players = [RandomPlayer(figure) for figure in random.sample(game.figures, 4)]
+    current_figures = random.sample(game.figures, 3)
+    players = [RandomPlayer(current_figures[0]), CheatingRandomPlayer(current_figures[1]), ManualRulePlayer(current_figures[2])]
     game.set_players(players)
 
     winner, turn_count = game.play()
